@@ -2,7 +2,7 @@
 
 RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。
 
-**功能：**适用于以下几种布局的分割线和粘性头部
+**功能**：适用于以下几种布局的分割线和粘性头部
 
 * LinearLayoutManager
 * GridLayoutManager *（水平方向粘性头部暂未实现）*
@@ -12,34 +12,7 @@ RecyclerView提供了良好的设计，将各部分功能的实现都拆解开�
 
 先上效果图
 
-<div style="float:left;border:solid 1px 000;margin:2px;">
-	<img src="https://upload-images.jianshu.io/upload_images/3157525-1272c1455600a866.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  width="180">
-</div>
-
-<div style="float:left;border:solid 1px 000;margin:2px;">
-	<img src="https://upload-images.jianshu.io/upload_images/3157525-b7ec028c70207a2a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
-</div>
-
-<div style="float:left;border:solid 1px 000;margin:2px;">
-	<img src="https://upload-images.jianshu.io/upload_images/3157525-33ff3a2ed8d6eab2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
-</div>
-
-<div style="float:none;clear:both;"/>
-
-<div style="float:left;border:solid 1px 000;margin:2px;">
-	<img src="https://upload-images.jianshu.io/upload_images/3157525-fae5a6f4f3d4eb46.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  width="180">
-</div>
-
-<div style="float:left;border:solid 1px 000;margin:2px;">
-	<img src="https://upload-images.jianshu.io/upload_images/3157525-c88e935db8d3fec4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
-</div>
-
-<div style="float:left;border:solid 1px 000;margin:2px;">
-	<img src="https://upload-images.jianshu.io/upload_images/3157525-bcd052a875db5be9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
-</div>
-
-<div style="float:none;clear:both;"/>
-
+![image.png](https://upload-images.jianshu.io/upload_images/3157525-d893956a04d45f2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 *注意：其中这三种布局的分割线不管是水平还是垂直方向都是支持的，但是带有header的只支持LinearLayoutManager的水平和垂直以及GridLayoutManager垂直方向*
 
@@ -47,7 +20,7 @@ RecyclerView提供了良好的设计，将各部分功能的实现都拆解开�
 
 ### 使用
 
-1、在根目录的build.gradle中加入如下配置
+**1、在根目录的build.gradle中加入如下配置**
 
 ```
 allprojects {
@@ -58,19 +31,19 @@ allprojects {
 }
 ```
 
-2、在要用的module中增加如下引用
+**2、在要用的module中增加如下引用**
 
 ```
 dependencies {
     ...
-    compile 'com.github.arvinljw:ItemDecorationHelper:v1.0.0'
+    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.0'
     implementation 'com.android.support:recyclerview-v7:'.concat(supportVersion)
 }
 ```
 
 *其中supportVersion换成自己app中的版本即可*
 
-3、为RecyclerView添加ItemDecoration，通过ItemDecorationFactory生成包括分割线的Builder和粘性头部的builder，后者包含了分割线
+**3、为RecyclerView添加ItemDecoration**，通过ItemDecorationFactory生成包括分割线的ItemDecoration和粘性头部的ItemDecoration，后者包含了分割线
 
 * ItemDecorationFactory.DividerBuilder 分割线
 
