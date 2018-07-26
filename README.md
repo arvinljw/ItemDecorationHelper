@@ -12,7 +12,9 @@ RecyclerView提供了良好的设计，将各部分功能的实现都拆解开�
 
 先上效果图
 
-![image.png](https://upload-images.jianshu.io/upload_images/3157525-d893956a04d45f2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/3157525-f3d66efc623b2a4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![image.png](https://upload-images.jianshu.io/upload_images/3157525-9f3027374f295e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 *注意：其中这三种布局的分割线不管是水平还是垂直方向都是支持的，但是带有header的只支持LinearLayoutManager的水平和垂直以及GridLayoutManager垂直方向*
 
