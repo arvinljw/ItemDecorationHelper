@@ -12,17 +12,34 @@ RecyclerView提供了良好的设计，将各部分功能的实现都拆解开�
 
 先上效果图
 
-<figure class="third">
-    <img src="https://upload-images.jianshu.io/upload_images/3157525-1272c1455600a866.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    <img src="https://upload-images.jianshu.io/upload_images/3157525-b7ec028c70207a2a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    <img src="https://upload-images.jianshu.io/upload_images/3157525-33ff3a2ed8d6eab2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-</figure>
+<div style="float:left;border:solid 1px 000;margin:2px;">
+	<img src="https://upload-images.jianshu.io/upload_images/3157525-1272c1455600a866.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  width="180">
+</div>
 
-<figure class="third">
-    <img src="https://upload-images.jianshu.io/upload_images/3157525-fae5a6f4f3d4eb46.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    <img src="https://upload-images.jianshu.io/upload_images/3157525-c88e935db8d3fec4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    <img src="https://upload-images.jianshu.io/upload_images/3157525-bcd052a875db5be9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-</figure>
+<div style="float:left;border:solid 1px 000;margin:2px;">
+	<img src="https://upload-images.jianshu.io/upload_images/3157525-b7ec028c70207a2a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
+</div>
+
+<div style="float:left;border:solid 1px 000;margin:2px;">
+	<img src="https://upload-images.jianshu.io/upload_images/3157525-33ff3a2ed8d6eab2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
+</div>
+
+<div style="float:none;clear:both;"/>
+
+<div style="float:left;border:solid 1px 000;margin:2px;">
+	<img src="https://upload-images.jianshu.io/upload_images/3157525-fae5a6f4f3d4eb46.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  width="180">
+</div>
+
+<div style="float:left;border:solid 1px 000;margin:2px;">
+	<img src="https://upload-images.jianshu.io/upload_images/3157525-c88e935db8d3fec4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
+</div>
+
+<div style="float:left;border:solid 1px 000;margin:2px;">
+	<img src="https://upload-images.jianshu.io/upload_images/3157525-bcd052a875db5be9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180">
+</div>
+
+<div style="float:none;clear:both;"/>
+
 
 *注意：其中这三种布局的分割线不管是水平还是垂直方向都是支持的，但是带有header的只支持LinearLayoutManager的水平和垂直以及GridLayoutManager垂直方向*
 
