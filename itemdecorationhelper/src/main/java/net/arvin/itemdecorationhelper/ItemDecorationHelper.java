@@ -7,6 +7,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
+import android.util.SparseIntArray;
 import android.view.View;
 
 /**
@@ -288,7 +290,7 @@ public class ItemDecorationHelper {
         }
     }
 
-    public static void onStickyLinearDrawOver(Canvas c, RecyclerView parent, IStickyHeader stickyDividerHelper) {
+    public static void onStickyLinearDrawOver(Canvas c, RecyclerView parent, IStickyHeader stickyDividerHelper, SparseIntArray headerTop) {
         if (!(parent.getLayoutManager() instanceof LinearLayoutManager)) {
             return;
         }
@@ -302,9 +304,9 @@ public class ItemDecorationHelper {
         boolean isVertical = layoutManager.getOrientation() == LinearLayoutManager.VERTICAL;
         for (int i = 0; i < childCount; i++) {
             if (isVertical) {
-                drawStickyLinearHeaderVertical(c, parent, i, stickyDividerHelper);
+                drawStickyLinearHeaderVertical(c, parent, i, stickyDividerHelper, headerTop);
             } else {
-                drawStickyLinearHeaderHorizontal(c, parent, i, stickyDividerHelper);
+                drawStickyLinearHeaderHorizontal(c, parent, i, stickyDividerHelper, headerTop);
             }
         }
     }
@@ -312,7 +314,7 @@ public class ItemDecorationHelper {
     /**
      * @param index 在屏幕中的位置
      */
-    private static void drawStickyLinearHeaderVertical(Canvas c, RecyclerView parent, int index, IStickyHeader stickyDividerHelper) {
+    private static void drawStickyLinearHeaderVertical(Canvas c, RecyclerView parent, int index, IStickyHeader stickyDividerHelper, SparseIntArray headerTop) {
         StickyDividerCallback callback = stickyDividerHelper.getCallback();
         if (callback == null) {
             return;
@@ -351,12 +353,13 @@ public class ItemDecorationHelper {
         headerView.setDrawingCacheEnabled(true);
         headerView.layout(left, top, right, bottom);
         c.drawBitmap(headerView.getDrawingCache(), left, top, null);
+        headerTop.put(position, top);
     }
 
     /**
      * @param index 在屏幕中的位置
      */
-    private static void drawStickyLinearHeaderHorizontal(Canvas c, RecyclerView parent, int index, IStickyHeader stickyDividerHelper) {
+    private static void drawStickyLinearHeaderHorizontal(Canvas c, RecyclerView parent, int index, IStickyHeader stickyDividerHelper, SparseIntArray headerTop) {
         StickyDividerCallback callback = stickyDividerHelper.getCallback();
         if (callback == null) {
             return;
@@ -395,6 +398,7 @@ public class ItemDecorationHelper {
         headerView.setDrawingCacheEnabled(true);
         headerView.layout(left, top, right, bottom);
         c.drawBitmap(headerView.getDrawingCache(), left, top, null);
+        headerTop.put(position, top);
     }
     //--StickyLinearDividerItemDecoration -- end
 
@@ -485,7 +489,7 @@ public class ItemDecorationHelper {
         }
     }
 
-    public static void onStickyGridDrawOver(Canvas c, RecyclerView parent, IStickyHeader stickyDividerHelper) {
+    public static void onStickyGridDrawOver(Canvas c, RecyclerView parent, IStickyHeader stickyDividerHelper, SparseIntArray headersTop) {
         if (checkStickyHeader(parent, stickyDividerHelper)) {
             return;
         }
@@ -531,6 +535,7 @@ public class ItemDecorationHelper {
             sectionView.setDrawingCacheEnabled(true);
             sectionView.layout(left, top, right, bottom);
             c.drawBitmap(sectionView.getDrawingCache(), left, top, null);
+            headersTop.put(realPos, top);
         }
     }
 

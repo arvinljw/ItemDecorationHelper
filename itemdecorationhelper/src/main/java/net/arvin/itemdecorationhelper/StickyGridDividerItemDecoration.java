@@ -56,7 +56,7 @@ public class StickyGridDividerItemDecoration extends BaseStickyDividerItemDecora
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDrawOver(c, parent, state);
-        ItemDecorationHelper.onStickyGridDrawOver(c, parent, stickyDividerHelper);
+        ItemDecorationHelper.onStickyGridDrawOver(c, parent, stickyDividerHelper, headersTop);
     }
 
 }

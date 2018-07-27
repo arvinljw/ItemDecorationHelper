@@ -1,4 +1,4 @@
-# ItemDecorationHelper
+## ItemDecorationHelper
 
 RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。
 
@@ -82,13 +82,37 @@ recyclerView.addItemDecoration(itemDecoration);
 
 **对于分割线没啥说的，可以设置分割线的颜色和大小。**
 
-其中对于显示
+#### 默认头部
 
-#### TODO
+其中对于显示分组头部，有一个默认实现DefaultHeaderCallBack，只需要重写分组数据即可。例如：
 
-* 为粘性头部增加点击事件
-* 增加默认的头部，只含文本
-* 增加对头部View的缓存优化
+```
+headerCallBack = new DefaultHeaderCallBack(this) {
+    @Override
+    public GroupData getGroupData(int position) {
+        //生成GroupData
+        return data;
+    }
+};
+```
+
+#### 头部点击事件
+
+为头部增加点击事件，其中回调中的position是当前header所在的item的实际位置。
+
+```
+((BaseStickyDividerItemDecoration) itemDecoration).setOnHeaderClickListener(new OnHeaderClickListener() {
+    @Override
+    public void onHeaderClicked(int position) {
+        //TODO
+    }
+});
+```
+
+*注意：在界面被销毁时，调用headerCallBack的onDestroy方法，避免内存泄漏。*
+
+### TODO
+
 * 优化实现方式
 
 ### 原理
@@ -109,6 +133,15 @@ recyclerView.addItemDecoration(itemDecoration);
 
 至于粘性头部，核心逻辑就是对数据的分组以及头部的偏移计算和绘制。也是万变不离其中。具体的实现请参考源码，含有一定的注释。
 
+### 感谢
+
+[RecyclerView 悬浮/粘性头部——StickyHeaderDecoration](https://blog.csdn.net/qian520ao/article/details/76167193)
+
+[【Android】RecyclerView：打造悬浮效果](https://www.jianshu.com/p/b335b620af39)
+
+[RecyclerView的 GridItemDecoration等分itemView](https://blog.csdn.net/qq_27192795/article/details/80563487)
+
+在实现过程中参考了很多文章，如果没有注明来源的，麻烦指出来，会直接加上引用来源的。
 
 ## License
 
