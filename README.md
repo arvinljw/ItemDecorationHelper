@@ -22,6 +22,8 @@ RecyclerView提供了良好的设计，将各部分功能的实现都拆解开�
 
 ### 使用
 
+[![](https://jitpack.io/v/arvinljw/ItemDecorationHelper.svg)](https://jitpack.io/#arvinljw/ItemDecorationHelper)
+
 **1、在根目录的build.gradle中加入如下配置**
 
 ```
@@ -38,7 +40,7 @@ allprojects {
 ```
 dependencies {
     ...
-    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.0'
+    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.1'
     implementation 'com.android.support:recyclerview-v7:'.concat(supportVersion)
 }
 ```
@@ -110,6 +112,12 @@ headerCallBack = new DefaultHeaderCallBack(this) {
 ```
 
 *注意：在界面被销毁时，调用headerCallBack的onDestroy方法，避免内存泄漏。*
+
+#### 代码混淆
+
+```
+-keep class net.arvin.itemdecorationhelper.**{*;}
+```
 
 ### TODO
 
