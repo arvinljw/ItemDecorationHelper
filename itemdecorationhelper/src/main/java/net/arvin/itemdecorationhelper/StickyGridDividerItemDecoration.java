@@ -37,7 +37,7 @@ public class StickyGridDividerItemDecoration extends BaseStickyDividerItemDecora
                 public int getSpanSize(int position) {
                     GroupData groupData = stickyDividerHelper.getCallback().getGroupData(position);
                     int returnSpan = 1;
-                    if (groupData.isLastViewInGroup()) {
+                    if (groupData != null && groupData.isLastViewInGroup()) {
                         returnSpan = spanCount - groupData.getPosition() % spanCount;
                     }
                     return returnSpan;

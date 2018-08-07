@@ -322,6 +322,9 @@ public class ItemDecorationHelper {
         View view = parent.getChildAt(index);
         int position = parent.getChildAdapterPosition(view);
         GroupData groupData = callback.getGroupData(position);
+        if (groupData == null) {
+            return;
+        }
 
         int left = parent.getPaddingLeft();
         int right = parent.getWidth() - parent.getPaddingRight();
@@ -367,6 +370,9 @@ public class ItemDecorationHelper {
         View view = parent.getChildAt(index);
         int position = parent.getChildAdapterPosition(view);
         GroupData groupData = callback.getGroupData(position);
+        if (groupData == null) {
+            return;
+        }
 
         int top = parent.getPaddingTop();
         int bottom = parent.getHeight() - parent.getPaddingBottom();
@@ -460,6 +466,9 @@ public class ItemDecorationHelper {
             int spanCount = layoutManager.getSpanCount();
             int position = parent.getChildAdapterPosition(child);
             GroupData data = callback.getGroupData(position);
+            if (data == null) {
+                continue;
+            }
             int column = data.getPosition() % spanCount + 1;//第几列
 
             //绘制下边
@@ -501,6 +510,9 @@ public class ItemDecorationHelper {
             View view = parent.getChildAt(index);
             int realPos = parent.getChildAdapterPosition(view);
             GroupData data = callback.getGroupData(realPos);
+            if (data == null) {
+                return;
+            }
 
             final int spanCount = layoutManager.getSpanCount();
 

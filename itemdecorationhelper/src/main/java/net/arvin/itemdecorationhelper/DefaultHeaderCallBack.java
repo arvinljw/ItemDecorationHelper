@@ -27,7 +27,10 @@ public abstract class DefaultHeaderCallBack implements StickyDividerCallback {
         if (headerView == null) {
             headerView = LayoutInflater.from(context).inflate(R.layout.item_decoration_default_header, null);
             TextView tvHeader = (TextView) headerView.findViewById(R.id.tv_header);
-            tvHeader.setText(getGroupData(position).getTitle());
+            GroupData groupData = getGroupData(position);
+            if (groupData != null) {
+                tvHeader.setText(groupData.getTitle());
+            }
             headerMap.put(position, headerView);
         }
         return headerView;

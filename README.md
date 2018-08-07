@@ -40,7 +40,7 @@ allprojects {
 ```
 dependencies {
     ...
-    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.1'
+    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.2'
     implementation 'com.android.support:recyclerview-v7:'.concat(supportVersion)
 }
 ```
@@ -97,6 +97,8 @@ headerCallBack = new DefaultHeaderCallBack(this) {
     }
 };
 ```
+
+*注意如果添加在Adapter中添加了emptyView，那么这个时候其实是没有数据项的，所以在getGroupData方法中返回null即可*
 
 #### 头部点击事件
 

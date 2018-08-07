@@ -27,7 +27,7 @@ public class StaggeredGridActivity extends LinearActivity {
     }
 
     @Override
-    protected RecyclerView.Adapter getAdapter() {
+    protected BaseQuickAdapter<ContactEntity, BaseViewHolder> getAdapter() {
         return new BaseQuickAdapter<ContactEntity, BaseViewHolder>(R.layout.item_text, items) {
             @Override
             protected void convert(BaseViewHolder helper, ContactEntity item) {

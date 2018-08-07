@@ -57,7 +57,7 @@ public class LinearActivity extends AppCompatActivity {
         if (havingHeader) {
             groupInfo();
         }
-        final RecyclerView.Adapter adapter = getAdapter();
+        final BaseQuickAdapter<ContactEntity, BaseViewHolder> adapter = getAdapter();
         recyclerView.setAdapter(adapter);
 
         itemDecoration = getItemDecoration();
@@ -76,6 +76,9 @@ public class LinearActivity extends AppCompatActivity {
             headerCallBack = new DefaultHeaderCallBack(this) {
                 @Override
                 public GroupData getGroupData(int position) {
+                    if (items.size() == 0) {
+                        return null;
+                    }
                     GroupData data = dataMap.get(position);
                     if (data == null) {
                         String letter = items.get(position).getLetter();
@@ -114,7 +117,7 @@ public class LinearActivity extends AppCompatActivity {
         return itemDecoration;
     }
 
-    protected RecyclerView.Adapter getAdapter() {
+    protected BaseQuickAdapter<ContactEntity, BaseViewHolder> getAdapter() {
         return new BaseQuickAdapter<ContactEntity, BaseViewHolder>(R.layout.item_text, items) {
             @Override
             protected void convert(BaseViewHolder helper, ContactEntity item) {
