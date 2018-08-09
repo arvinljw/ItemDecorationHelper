@@ -40,7 +40,7 @@ allprojects {
 ```
 dependencies {
     ...
-    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.2'
+    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.3'
     implementation 'com.android.support:recyclerview-v7:'.concat(supportVersion)
 }
 ```
@@ -55,6 +55,7 @@ dependencies {
 itemDecoration = new ItemDecorationFactory.DividerBuilder()
         .dividerHeight(2)
         .dividerColor(Color.parseColor("#D8D8D8"))
+        .showLastDivider(false)//默认是true
         .build(recyclerView);
 recyclerView.addItemDecoration(itemDecoration);
 ```

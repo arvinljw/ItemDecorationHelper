@@ -112,7 +112,7 @@ public class LinearActivity extends AppCompatActivity {
             itemDecoration = new ItemDecorationFactory.DividerBuilder()
                     .dividerHeight(2)
                     .dividerColor(Color.parseColor("#D8D8D8"))
-                    .showLastDivider(false)
+                    .showLastDivider(false)//默认是true
                     .build(recyclerView);
         }
         return itemDecoration;
