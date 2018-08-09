@@ -15,14 +15,17 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 public class ItemDecorationFactory {
     private static final int DEFAULT_DIVIDER_HEIGHT = 2;
     private static final int DEFAULT_DIVIDER_COLOR = Color.parseColor("#D8D8D8");
+    private static final boolean DEFAULT_SHOW_LAST_DIVIDER = true;
 
     public static class DividerBuilder {
         private int dividerHeight;
         private int dividerColor;
+        private boolean showLastDivider;
 
         public DividerBuilder() {
             dividerHeight = DEFAULT_DIVIDER_HEIGHT;
             dividerColor = DEFAULT_DIVIDER_COLOR;
+            showLastDivider = DEFAULT_SHOW_LAST_DIVIDER;
         }
 
         public DividerBuilder dividerHeight(int dividerHeight) {
@@ -35,12 +38,24 @@ public class ItemDecorationFactory {
             return this;
         }
 
+        /**
+         * 只用于LinearLayoutManager，处理最后一项是否显示分割线
+         */
+        public DividerBuilder showLastDivider(boolean showLastDivider) {
+            this.showLastDivider = showLastDivider;
+            return this;
+        }
+
         public int getDividerHeight() {
             return dividerHeight;
         }
 
         public int getDividerColor() {
             return dividerColor;
+        }
+
+        public boolean isShowLastDivider() {
+            return showLastDivider;
         }
 
         public RecyclerView.ItemDecoration build(RecyclerView recyclerView) {
@@ -61,12 +76,14 @@ public class ItemDecorationFactory {
     public static class StickyDividerBuilder {
         private int dividerHeight;
         private int dividerColor;
+        private boolean showLastDivider;
 
         private StickyDividerCallback callback;
 
         public StickyDividerBuilder() {
             dividerHeight = DEFAULT_DIVIDER_HEIGHT;
             dividerColor = DEFAULT_DIVIDER_COLOR;
+            showLastDivider = DEFAULT_SHOW_LAST_DIVIDER;
         }
 
         public StickyDividerBuilder callback(StickyDividerCallback callback) {
@@ -84,12 +101,24 @@ public class ItemDecorationFactory {
             return this;
         }
 
+        /**
+         * 只用于LinearLayoutManager，处理最后一项是否显示分割线
+         */
+        public StickyDividerBuilder showLastDivider(boolean showLastDivider) {
+            this.showLastDivider = showLastDivider;
+            return this;
+        }
+
         public int getDividerHeight() {
             return dividerHeight;
         }
 
         public int getDividerColor() {
             return dividerColor;
+        }
+
+        public boolean isShowLastDivider() {
+            return showLastDivider;
         }
 
         public StickyDividerCallback getCallback() {

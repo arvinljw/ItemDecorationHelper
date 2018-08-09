@@ -7,7 +7,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.View;
 
@@ -19,7 +18,7 @@ import android.view.View;
 public class ItemDecorationHelper {
 
     //--LinearItemDecoration -- start
-    public static void getLinearItemOffset(Rect outRect, RecyclerView parent, IDivider dividerHelper) {
+    public static void getLinearItemOffset(Rect outRect, View view, RecyclerView parent, IDivider dividerHelper) {
         if (!(parent.getLayoutManager() instanceof LinearLayoutManager)) {
             return;
         }
@@ -27,9 +26,15 @@ public class ItemDecorationHelper {
 
         if (layoutManager.getOrientation() == LinearLayoutManager.VERTICAL) {
             outRect.set(0, 0, 0, dividerHelper.getDividerHeight());
+            if (dontShowLastDivider(view, parent, dividerHelper)) {
+                outRect.bottom = 0;
+            }
         } else {
             //noinspection SuspiciousNameCombination
             outRect.set(0, 0, dividerHelper.getDividerHeight(), 0);
+            if (dontShowLastDivider(view, parent, dividerHelper)) {
+                outRect.right = 0;
+            }
         }
     }
 
@@ -238,7 +243,7 @@ public class ItemDecorationHelper {
             return;
         }
 
-        getLinearItemOffset(outRect, parent, stickyDividerHelper);
+        getLinearItemOffset(outRect, view, parent, stickyDividerHelper);
 
         StickyDividerCallback callback = stickyDividerHelper.getCallback();
         if (callback == null) {
@@ -567,14 +572,20 @@ public class ItemDecorationHelper {
     }
     //--StickyGridDividerItemDecoration -- end
 
+    private static boolean dontShowLastDivider(View view, RecyclerView parent, IDivider dividerHelper) {
+        return parent.getChildAdapterPosition(view) == parent.getAdapter().getItemCount() - 1 && !dividerHelper.isShowLastDivider();
+    }
+
     public static class DividerHelper implements IDivider {
         private Paint dividerPaint;
         private int dividerHeight;
         private int dividerColor;
+        private boolean showLastDivider;
 
         DividerHelper(ItemDecorationFactory.DividerBuilder builder) {
             this.dividerHeight = builder.getDividerHeight();
             this.dividerColor = builder.getDividerColor();
+            this.showLastDivider = builder.isShowLastDivider();
 
             initPaint();
         }
@@ -599,12 +610,18 @@ public class ItemDecorationHelper {
         public int getDividerColor() {
             return dividerColor;
         }
+
+        @Override
+        public boolean isShowLastDivider() {
+            return showLastDivider;
+        }
     }
 
     public static class StickyDividerHelper implements IStickyHeader {
         private Paint dividerPaint;
         private int dividerHeight;
         private int dividerColor;
+        private boolean showLastDivider;
 
         private StickyDividerCallback callback;
         private int headerHeight;
@@ -613,6 +630,7 @@ public class ItemDecorationHelper {
             this.callback = builder.getCallback();
             this.dividerHeight = builder.getDividerHeight();
             this.dividerColor = builder.getDividerColor();
+            this.showLastDivider = builder.isShowLastDivider();
 
             initPaint();
         }
@@ -643,6 +661,11 @@ public class ItemDecorationHelper {
             return dividerColor;
         }
 
+        @Override
+        public boolean isShowLastDivider() {
+            return showLastDivider;
+        }
+
         public int getHeaderHeight() {
             return headerHeight;
         }
@@ -659,6 +682,8 @@ public class ItemDecorationHelper {
         int getDividerHeight();
 
         int getDividerColor();
+
+        boolean isShowLastDivider();
     }
 
     public interface IStickyHeader extends IDivider {

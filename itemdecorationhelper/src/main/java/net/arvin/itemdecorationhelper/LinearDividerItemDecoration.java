@@ -19,7 +19,7 @@ public class LinearDividerItemDecoration extends BaseDividerItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-        ItemDecorationHelper.getLinearItemOffset(outRect, parent, dividerHelper);
+        ItemDecorationHelper.getLinearItemOffset(outRect, view, parent, dividerHelper);
     }
 
     @Override
