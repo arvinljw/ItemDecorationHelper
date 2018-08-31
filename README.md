@@ -40,7 +40,7 @@ allprojects {
 ```
 dependencies {
     ...
-    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.3'
+    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.5'
     implementation 'com.android.support:recyclerview-v7:'.concat(supportVersion)
 }
 ```

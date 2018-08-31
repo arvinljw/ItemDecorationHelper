@@ -13,8 +13,8 @@ import android.view.View;
  * Desc：
  */
 public class BaseStickyDividerItemDecoration extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
-    private ItemDecorationHelper.StickyDividerHelper stickyDividerHelper;
-    private SparseIntArray headersTop;
+    protected ItemDecorationHelper.StickyDividerHelper stickyDividerHelper;
+    protected SparseIntArray headersTop;
     private OnHeaderClickListener headerClickListener;
     private StickyHeaderClickGestureDetector gestureDetector;
 
