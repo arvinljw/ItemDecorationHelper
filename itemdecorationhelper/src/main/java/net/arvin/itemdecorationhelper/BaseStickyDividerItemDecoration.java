@@ -13,10 +13,10 @@ import android.view.View;
  * Desc：
  */
 public class BaseStickyDividerItemDecoration extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
-    ItemDecorationHelper.StickyDividerHelper stickyDividerHelper;
-    SparseIntArray headersTop;
+    private ItemDecorationHelper.StickyDividerHelper stickyDividerHelper;
+    private SparseIntArray headersTop;
     private OnHeaderClickListener headerClickListener;
-    StickyHeaderClickGestureDetector gestureDetector;
+    private StickyHeaderClickGestureDetector gestureDetector;
 
     BaseStickyDividerItemDecoration(ItemDecorationFactory.StickyDividerBuilder builder) {
         stickyDividerHelper = new ItemDecorationHelper.StickyDividerHelper(builder);
@@ -37,6 +37,10 @@ public class BaseStickyDividerItemDecoration extends RecyclerView.ItemDecoration
 
     public void setOnHeaderClickListener(OnHeaderClickListener headerClickListener) {
         this.headerClickListener = headerClickListener;
+    }
+
+    public ItemDecorationHelper.StickyDividerHelper getStickyDividerHelper() {
+        return stickyDividerHelper;
     }
 
     @Override

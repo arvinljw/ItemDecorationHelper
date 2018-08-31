@@ -8,9 +8,13 @@ import android.support.v7.widget.RecyclerView;
  * Desc：
  */
 public class BaseDividerItemDecoration extends RecyclerView.ItemDecoration {
-    ItemDecorationHelper.DividerHelper dividerHelper;
+    private ItemDecorationHelper.DividerHelper dividerHelper;
 
     BaseDividerItemDecoration(ItemDecorationFactory.DividerBuilder builder) {
         dividerHelper = new ItemDecorationHelper.DividerHelper(builder);
+    }
+
+    public ItemDecorationHelper.DividerHelper getDividerHelper() {
+        return dividerHelper;
     }
 }
