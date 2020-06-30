@@ -19,6 +19,7 @@
         <activity android:name=".LinearActivity"/>
         <activity android:name=".GridActivity"/>
         <activity android:name=".StaggeredGridActivity"/>
+        <activity android:name=".temp.HVDataActivity"/>
     </application>
 
 </manifest>

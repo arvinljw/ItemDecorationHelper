@@ -1,11 +1,9 @@
 package net.arvin.itemdecorationhelper;
 
-import android.annotation.SuppressLint;
 import android.graphics.Canvas;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
-import android.view.View;
 
 /**
  * Created by arvinljw on 2018/7/24 15:17

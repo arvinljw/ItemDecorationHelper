@@ -1,6 +1,6 @@
 package net.arvin.itemdecorationhelper;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by arvinljw on 2018/7/24 09:42

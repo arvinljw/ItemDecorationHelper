@@ -1,7 +1,7 @@
 package net.arvin.itemdecorationhelper.sample;
 
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by arvinljw on 2018/7/25 14:03

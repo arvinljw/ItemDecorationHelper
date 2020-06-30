@@ -40,12 +40,12 @@ allprojects {
 ```
 dependencies {
     ...
-    implementation 'com.github.arvinljw:ItemDecorationHelper:v1.0.5'
-    implementation 'com.android.support:recyclerview-v7:'.concat(supportVersion)
+    implementation 'com.github.arvinljw:ItemDecorationHelper:v2.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
 ```
 
-*其中supportVersion换成自己app中的版本即可*
+*其中recyclerview的版本换成自己app中的版本即可*
 
 **3、为RecyclerView添加ItemDecoration**，通过ItemDecorationFactory生成包括分割线的ItemDecoration和粘性头部的ItemDecoration，后者包含了分割线
 
